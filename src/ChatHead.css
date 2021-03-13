@@ -1,0 +1,23 @@
+.chat-header {
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  object-fit: contain;
+}
+
+.chat-main {
+
+}
+
+.header-right {
+  display: flex;
+  flex: 0.7;
+
+}
+
+.header-left {
+  flex: 0.3;
+
+}
