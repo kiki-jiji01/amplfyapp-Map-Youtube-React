@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-googlemapapp-dev-95353-authRole",
+      "UnauthRoleArn": "arn:aws:iam::804203834489:role/amplify-googlemapapp-dev-95353-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::804203834489:role/amplify-googlemapapp-dev-95353-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-googlemapapp-dev-95353-deployment",
+      "UnauthRoleName": "amplify-googlemapapp-dev-95353-unauthRole",
+      "StackName": "amplify-googlemapapp-dev-95353",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:804203834489:stack/amplify-googlemapapp-dev-95353/f6abc390-8528-11eb-8c14-0e12314541b5",
+      "AmplifyAppId": "dta44jvuxeyui"
+    }
+  }
+}

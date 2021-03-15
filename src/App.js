@@ -22,6 +22,7 @@ import Bannar from './Bannar';
 import Card from './Card';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chat from './Chat';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
 
 
@@ -255,6 +256,9 @@ getState =(addressArray) => {
 
    return (
 
+   
+      
+
 
 <Router>
 <Switch>
@@ -265,6 +269,19 @@ getState =(addressArray) => {
 
 <Route path="/">
    <div className="main">
+
+
+   <div className="App">
+      <header>
+        <h1>We now have Auth!</h1>
+      </header>
+      <AmplifySignOut />
+    </div>
+
+
+
+
+
      <div className="header">
       <Header/>
      </div>
