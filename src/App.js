@@ -22,8 +22,10 @@ import Bannar from './Bannar';
 import Card from './Card';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chat from './Chat';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
+import Amplify from "aws-amplify";
+import {AmplifyAuthenticator, AmplifySignOut} from "@aws-amplify/ui-react";
+import awsconfig from "./aws-exports";
 Amplify.configure(awsconfig);
 
 Geocode.setApiKey("AIzaSyC8TObc-42ezqT3q6fb2qPDBnxjltnay6A")
