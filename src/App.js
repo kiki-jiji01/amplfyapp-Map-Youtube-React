@@ -24,7 +24,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Chat from './Chat';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
-
+Amplify.configure(awsconfig);
 
 Geocode.setApiKey("AIzaSyC8TObc-42ezqT3q6fb2qPDBnxjltnay6A")
 
@@ -257,101 +257,93 @@ getState =(addressArray) => {
    return (
 
    
-      
+<AmplifyAuthenticator>
+　<div>
+    <Router>
+    <Switch>
+
+    <Route path="/chat">
+          <Chat/>
+        </Route>
+
+    <Route path="/">
+      <div className="main">
 
 
-<Router>
-<Switch>
+        <div className="header">
+          <Header/>
+        </div>
 
-<Route path="/chat">
-      <Chat/>
+        <div className="bannar">
+          <Bannar/>
+        </div>
+
+      </div>
+
+      <div className="GoogleMap_main">
+        <MapWithAMarker
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8TObc-42ezqT3q6fb2qPDBnxjltnay6A&v=3.exp&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `70vh` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+        </div>
+
+        <div className="grid">
+        <Grid justify="center"  container spacing={10} className="grid">
+          <Grid item xs={12}>
+          <Grid  container spacing={10}>
+
+            <Grid item xs={8}>
+              <VideoDetail video={selectedVideo}/>
+            </Grid>
+
+            <Grid item xs={4}>
+              <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>
+            </Grid>
+
+          </Grid>
+          </Grid>
+        </Grid>
+        </div>
+
+      <div className="house">
+      <Card
+      city="London"
+      prices="Macdonalds 3$"
+      src="https://images.unsplash.com/photo-1516382772789-f9bfd7cb7532?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c3RvY2tob2xtfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60"/>
+      <Card
+      city="Stockholm"
+      prices="Macdonalds 3$"
+      src="https://images.unsplash.com/photo-1497217968520-7d8d60b7bc25?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c3RvY2tob2xtfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60"/>
+      <Card
+      city="Paris"
+      prices="Macdonalds 3$"
+      src="https://images.unsplash.com/photo-1580339841933-f06ca55842d0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8c3RvY2tob2xtfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"/>
+      </div>
+
+      <div className="house">
+      <Card
+      city="Gotland"
+      prices="Macdonalds 3$"
+      src="https://images.unsplash.com/photo-1464724680407-16b588cd4ccc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NjN8fGZyYW5jZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"/>
+      <Card
+      city="Paris"
+      prices="Macdonalds 3$"
+      src="https://images.unsplash.com/photo-1551258914-1d1068e30331?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8c2FuZnJhbmNpc2NvfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"/>
+      <Card
+      city="Iceland"
+      prices="Macdonalds 3$"
+      src="https://images.unsplash.com/photo-1501952476817-d7ae22e8ee4e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8Z2VybWFueXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"/>
+      </div>
+
     </Route>
-
-<Route path="/">
-   <div className="main">
-
-
-   <div className="App">
-      <header>
-        <h1>We now have Auth!</h1>
-      </header>
-      <AmplifySignOut />
-    </div>
-
-
-
-
-
-     <div className="header">
-      <Header/>
-     </div>
-
-     <div className="bannar">
-      <Bannar/>
-     </div>
-
-   </div>
-
-   <div className="GoogleMap_main">
-     <MapWithAMarker
-       googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8TObc-42ezqT3q6fb2qPDBnxjltnay6A&v=3.exp&libraries=geometry,drawing,places"
-       loadingElement={<div style={{ height: `100%` }} />}
-       containerElement={<div style={{ height: `70vh` }} />}
-       mapElement={<div style={{ height: `100%` }} />}
-     />
-    </div>
-
-    <div className="grid">
-     <Grid justify="center"  container spacing={10} className="grid">
-      <Grid item xs={12}>
-       <Grid  container spacing={10}>
-
-        <Grid item xs={8}>
-          <VideoDetail video={selectedVideo}/>
-        </Grid>
-
-        <Grid item xs={4}>
-           <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>
-        </Grid>
-
-       </Grid>
-      </Grid>
-     </Grid>
-    </div>
-
-  <div className="house">
-   <Card
-   city="London"
-   prices="Macdonalds 3$"
-   src="https://images.unsplash.com/photo-1516382772789-f9bfd7cb7532?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8c3RvY2tob2xtfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60"/>
-   <Card
-   city="Stockholm"
-   prices="Macdonalds 3$"
-   src="https://images.unsplash.com/photo-1497217968520-7d8d60b7bc25?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c3RvY2tob2xtfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=60"/>
-   <Card
-   city="Paris"
-   prices="Macdonalds 3$"
-   src="https://images.unsplash.com/photo-1580339841933-f06ca55842d0?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8c3RvY2tob2xtfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"/>
+    </Switch>
+    </Router>
   </div>
+</AmplifyAuthenticator>
 
-  <div className="house">
-   <Card
-   city="Gotland"
-   prices="Macdonalds 3$"
-   src="https://images.unsplash.com/photo-1464724680407-16b588cd4ccc?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NjN8fGZyYW5jZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"/>
-   <Card
-   city="Paris"
-   prices="Macdonalds 3$"
-   src="https://images.unsplash.com/photo-1551258914-1d1068e30331?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8c2FuZnJhbmNpc2NvfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"/>
-   <Card
-   city="Iceland"
-   prices="Macdonalds 3$"
-   src="https://images.unsplash.com/photo-1501952476817-d7ae22e8ee4e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8Z2VybWFueXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"/>
-  </div>
 
-</Route>
-</Switch>
-</Router>
 
 
 
